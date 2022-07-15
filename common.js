@@ -2,7 +2,14 @@ $(function() {
     $('.ham').click(function() {
         $('.ham_btn').toggleClass('on')
         $('.ham').toggleClass('on')
-        $('.ham_btn').toggleClass('changed')
+        $('.ham_btn>span').toggleClass('on')
+        $('.ham_btn .background').toggleClass('on')
+    })
+    $('.ham_btn>span').click(function() {
+        $('.ham_btn').toggleClass('on')
+        $('.ham').toggleClass('on')
+        $('.ham_btn>span').toggleClass('on')
+        $('.ham_btn .background').toggleClass('on')
     })
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,

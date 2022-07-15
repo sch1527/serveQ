@@ -181,22 +181,26 @@ header .sub li:hover a {
         width: 100%;
         left: 100%;
         transition: 0.5s;
-        z-index: 10;
-    }
-    .ham_btn::before {
-        content: 'x';
-        position: absolute;
-        font-size: 2rem;
-        top: 10px;
-        left: -25px;
-        opacity: 0;
-        transition: 0.7s;
+        z-index: 100;
     }
     .ham_btn.changed::before {
         opacity: 1;
     }
     .ham_btn.on {
         left: 10%;
+    }
+    .ham_btn>span {
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 1rem;
+        display: none;
+        color: white;
+    }
+    .ham_btn>span.on {
+        display: block;
     }
     .ham_btn .login_area {
         padding: 1rem;
@@ -213,7 +217,8 @@ header .sub li:hover a {
     .ham_btn .login_area span {
         font-size: 13px;
         padding-left: 1rem;
-    }.ham_btn .depth1 {
+    }
+    .ham_btn .depth1 {
         background-color: white;
         position: absolute;
         top: 100%;
@@ -223,6 +228,18 @@ header .sub li:hover a {
     .ham_btn .depth1 li {
         padding: 1rem 0;
         border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    .ham_btn .background {
+        position: absolute;
+        width: 10%;
+        height: 100vh;
+        top: 0;
+        left: -10%;
+        background-color: rgba(0,0,0,0.5);
+        display: none;
+    }
+    .ham_btn .background.on {
+        display: block;
     }
 }
 .sec1 {
