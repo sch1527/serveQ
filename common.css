@@ -1,0 +1,234 @@
+@charset 'utf-8';
+
+body {
+    font-family: 'NanumSquare';
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+.ham_btn {
+    display: none;
+}
+header {
+    position: fixed;
+    width: 100%;
+}
+header .inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+header h1 {
+    padding: 1rem;
+}
+header nav {
+    width: 60%;
+    position: relative;
+}
+header nav::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -70%;
+    width: 300%;
+    height: 0;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    background-color: aliceblue;
+    opacity: 0;
+    transition: 0.7s;
+    z-index: -1;
+}
+header nav:hover::before {
+    opacity: 1;
+    height: 350px;
+}
+header nav::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 350px);
+    left: -70%;
+    width: 300%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: 0.3s;
+    z-index: -1;
+}
+header nav:hover::after {
+    height: 510px;
+    opacity: 1;
+}
+header nav:hover .sub {
+    opacity: 1;
+}
+header .gnb {
+    display: flex;
+}
+header .gnb>li>a {
+    font-size: 18px;
+    font-family: 'NanumSquareAcb';
+}
+header .gnb_menu {
+    width: 30%;
+}
+header .gnb_menu ul {
+    display: flex;
+    justify-content: space-between;
+}
+header .gnb,
+header .gnb_menu {
+    padding: 1.5rem 0;
+}
+header .gnb_menu .search i {
+    font-size: 30px;
+    position: relative;
+}
+header .gnb_menu li a {
+    font-size: 12px;
+}
+header .gnb_menu .search i::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2.4rem;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+    border-left: 1px solid rgba(0,0,0,0.2);
+}
+header .gnb_menu .ham {
+    display: none;
+}
+header .gnb>li {
+    position: relative;
+}
+header .gnb>li>a {
+    padding: 1rem 2rem;
+}
+header .sub {
+    position: absolute;
+    width: 200%;
+    top: calc(100% + 32px);
+    left: 16px;
+    padding-top: 2rem;
+    opacity: 0;
+    transition: 0.7s;
+}
+header .sub li a {
+    display: block;
+    padding: 1rem;
+}
+header .sub li:hover a {
+    color:#ce462e;
+}
+@media(max-width:800px) {
+    header .gnb,
+    header .gnb_menu li {
+        display: none;
+    }
+    header nav {
+        display: none;
+    }
+    header .gnb_menu .search {
+        display: block;
+        margin-left: 1rem;
+    }
+    header .gnb_menu .search i::after {
+        border: none;
+    }
+    header .gnb_menu {
+        position: absolute;
+        right: 1rem;
+    }
+    header .gnb_menu .ham {
+        display: block;
+        width: 30px;
+        position: relative;
+    }
+    header .gnb_menu .ham.on {
+        display: none;
+    }
+    header .gnb_menu .ham span {
+        position: absolute;
+        top: -30px;
+        right: -80px;
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+    header .gnb_menu .ham span:nth-of-type(2) {
+        top: -15px;
+        width: 20px;
+    }
+    header .gnb_menu .ham span:nth-of-type(3) {
+        top: 0;
+    }
+    header .gnb,
+    .sec1 {
+        display: none;
+    }
+    .ham_btn {
+        display: block;
+        position: fixed;
+        width: 100%;
+        left: 100%;
+        transition: 0.5s;
+        z-index: 10;
+    }
+    .ham_btn::before {
+        content: 'x';
+        position: absolute;
+        font-size: 2rem;
+        top: 10px;
+        left: -25px;
+        opacity: 0;
+        transition: 0.7s;
+    }
+    .ham_btn.changed::before {
+        opacity: 1;
+    }
+    .ham_btn.on {
+        left: 10%;
+    }
+    .ham_btn .login_area {
+        padding: 1rem;
+        background-color: #ce462d;
+        color: white;
+    }
+    .ham_btn .login {
+        padding: 3px 1.2rem;
+        border: 1px solid white;
+        color: white;
+        font-size: 12px;
+        background-color: transparent;
+    }
+    .ham_btn .login_area span {
+        font-size: 13px;
+        padding-left: 1rem;
+    }.ham_btn .depth1 {
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 100vh;
+    }
+    .ham_btn .depth1 li {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+}
+.sec1 {
+    padding-top: 78px;
+}
+.sec1 .inner {
+    max-width: 1200px;
+    margin: auto;
+}
