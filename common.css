@@ -18,6 +18,8 @@ a {
 header {
     position: fixed;
     width: 100%;
+    z-index: 100;
+    background-color: white;
 }
 header .inner {
     max-width: 1200px;
@@ -171,10 +173,6 @@ header .sub li:hover a {
     header .gnb_menu .ham span:nth-of-type(3) {
         top: 0;
     }
-    header .gnb,
-    .sec1 {
-        display: none;
-    }
     .ham_btn {
         display: block;
         position: fixed;
@@ -310,11 +308,139 @@ header .sub li:hover a {
     .close {
         cursor: pointer;
     }
+    header {
+        z-index: 1;
+    }
+    .sec1 {
+        height: 80vh;
+        position: relative;
+    }
+    .sec1 img {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+    }
 }
 .sec1 {
     padding-top: 78px;
+    position: relative;
 }
-.sec1 .inner {
+.sec1 .mySwiper img {
+    width: 100%;
+}
+.sec1 h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+    line-height: 1.6;
+    font-family: 'NanumSquareExtraBold';
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    color: white;
+}
+.swiper-button-prev {
+    left: 10%;
+}
+.swiper-button-next {
+    right: 10%;
+}
+.swiper-pagination-bullet {
+    border: 8px solid white;
+}
+.sec2 {
+    padding-top: 50px;
+}
+.sec2 .inner {
     max-width: 1200px;
     margin: auto;
+}
+.sec2 .text_area h3,
+.sec2 .text_area p {
+    text-align: center;
+}
+.sec2 .text_area h3 {
+    font-size: 30px;
+    font-family: 'NanumSquareBold';
+}
+.sec2 .text_area p {
+    padding-top: 1rem;
+    color: #807272;
+}
+.sec2 .product_area {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.sec2 .product_area li {
+    width: 23%;
+    overflow: hidden;
+}
+.sec2 .product_area li:hover .hover_area {
+    left: 50%;
+    transform: translateX(-50%);
+}
+.sec2 .product_area img {
+    width: 100%;
+}
+.sec2 .product_area li p {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 22px;
+}
+.sec2 .product_area .hover_change {
+    position: relative;
+    height: 190px;
+    transition: 0.6s;
+}
+.sec2 .product_area .hover_change::before {
+    content: '';
+    position: absolute;
+    background: url(./img/icon_product1.png) no-repeat;
+    top: 40%;
+    left: 40%;
+    width: 30%;
+    height: 40%;
+}
+.sec2 .product_area .hover_change::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    bottom: 20px;
+    left: 52%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid black;
+}
+.sec2 .product_area .hover_change:hover {
+    /* left: 100%; */
+}
+.sec2 .product_area .hover_area {
+    position: absolute;
+    top: 30%;
+    left: 100%;
+    width: 100%;
+    transition: 0.6s;
+}
+.sec2 .product_area .hover_area::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -33px;
+    border-bottom: 3px solid red;
+}
+.sec2 .product_area .hover_area p{
+    font-size: 1rem;
+}
+.sec2 .product_area .hover_area a {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+}
+.sec2 .product_area .hover_area a span {
+    display: block;
+    text-align: center;
 }
