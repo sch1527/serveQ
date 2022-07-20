@@ -12,6 +12,19 @@ a {
     text-decoration: none;
     color: #333;
 }
+html {
+    scroll-behavior: smooth;
+}
+.floating_menu {
+    position: fixed;
+    right: 100px;
+    top: 80vh;
+    z-index: 100;
+}
+.floating_menu img {
+    position: fixed;
+    z-index: -1;
+}
 .ham_btn {
     display: none;
 }
@@ -359,15 +372,15 @@ header .sub li:hover a {
     max-width: 1200px;
     margin: auto;
 }
-.sec2 .text_area h3,
-.sec2 .text_area p {
+.text_area h3,
+.text_area p {
     text-align: center;
 }
-.sec2 .text_area h3 {
+.text_area h3 {
     font-size: 30px;
     font-family: 'NanumSquareBold';
 }
-.sec2 .text_area p {
+.text_area p {
     padding-top: 1rem;
     color: #807272;
 }
@@ -375,10 +388,10 @@ header .sub li:hover a {
     padding-top: 50px;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 .sec2 .product_area li {
     width: 23%;
-    overflow: hidden;
 }
 .sec2 .product_area li:hover .hover_area {
     left: 50%;
@@ -387,17 +400,26 @@ header .sub li:hover a {
 .sec2 .product_area img {
     width: 100%;
 }
-.sec2 .product_area li p {
+.sec2 .product_area li p,
+.sec2 .product_area li b {
     text-align: center;
     padding-top: 1rem;
     font-size: 22px;
+}
+.sec2 .product_area li b {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .sec2 .product_area .hover_change {
     position: relative;
     height: 190px;
     transition: 0.6s;
+    overflow: hidden;
 }
-.sec2 .product_area .hover_change::before {
+
+.sec2 .product_area li .hover_change::before {
     content: '';
     position: absolute;
     background: url(./img/icon_product1.png) no-repeat;
@@ -405,6 +427,16 @@ header .sub li:hover a {
     left: 40%;
     width: 30%;
     height: 40%;
+    transition: 0.6s;
+}
+.sec2 .product_area li:nth-of-type(2) .hover_change::before {
+    background: url(./img/icon_product2.png) no-repeat
+}
+.sec2 .product_area li:nth-of-type(3) .hover_change::before {
+    background: url(./img/icon_product3.png) no-repeat
+}
+.sec2 .product_area li:nth-of-type(4) .hover_change::before {
+    background: url(./img/icon_product4.png) no-repeat
 }
 .sec2 .product_area .hover_change::after {
     content: '';
@@ -414,9 +446,11 @@ header .sub li:hover a {
     left: 52%;
     transform: translateX(-50%);
     border-bottom: 1px solid black;
+    transition: 0.6s;
 }
-.sec2 .product_area .hover_change:hover {
-    /* left: 100%; */
+.sec2 .product_area li:hover .hover_change::before,
+.sec2 .product_area li:hover .hover_change::after {
+    left: -50%;
 }
 .sec2 .product_area .hover_area {
     position: absolute;
@@ -429,11 +463,12 @@ header .sub li:hover a {
     content: '';
     position: absolute;
     width: 100%;
-    bottom: -33px;
+    bottom: -28px;
     border-bottom: 3px solid red;
 }
 .sec2 .product_area .hover_area p{
     font-size: 1rem;
+    line-height: 1.3;
 }
 .sec2 .product_area .hover_area a {
     display: block;
@@ -443,4 +478,71 @@ header .sub li:hover a {
 .sec2 .product_area .hover_area a span {
     display: block;
     text-align: center;
+    position: relative;
+}
+.sec2 .product_area .hover_area a span::after {
+    content: '>';
+    position: absolute;
+    padding-left: 20px;
+}
+.sec3 {
+    padding-top: 50px;
+}
+.sec3 .inner {
+    max-width: 1200px;
+    margin: auto;
+}
+.sec3 .wrapper {
+    display: flex;
+    padding-top: 50px;
+}
+.sec3 .wrapper li {
+    width: 100%;
+    position: relative;
+}
+.sec3 .wrapper li .box {
+    position: absolute;
+    width: calc(100% - 11px);
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: white;
+    transition: 0.6s;
+}
+.sec3 .wrapper li .box div {
+    position: absolute;
+    width: 100%;
+    top: 80%;
+    transform: translateY(-80%);
+    transition: 0.6s;
+}
+.sec3 .wrapper li:hover .box {
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+}
+.sec3 .wrapper li:hover .box div {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sec3 .wrapper li .box b {
+    font-size: 30px;
+    font-family: 'NanumSquareExtraBold';
+}
+.sec3 .wrapper li .box p {
+    padding-top: 1.2rem;
+    line-height: 1.3;
+}
+.sec3 .wrapper li .box a {
+    color: white;
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    margin-top: 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.sec3 .wrapper li .box a:hover {
+    background-color: white;
+    color: black;
 }
