@@ -690,4 +690,27 @@ header .sub li:hover a {
         background-color: transparent;
         color: transparent;
     }
+    .sec4 .inner > a {
+        display: none;
+    }
+    .sec4 .recipe {
+        flex-direction: column;
+    }
+    .sec4 .recipe .recipe_menu {
+        display: flex;
+        flex-direction: column;
+    }
+    .sec4 .recipe .recipe_menu img {
+        display: flex;
+        margin: 10px auto;
+    }
+    .sec4 .recipe li:nth-of-type(odd) .recipe_menu img{
+        order: 1;
+    }
+    .sec4 .recipe li:nth-of-type(odd) .recipe_menu p {
+        padding-bottom: 28px;
+    }
+    .sec4 .recipe li:nth-of-type(odd) .hover_box {
+        top: 27%;
+    }
 }
