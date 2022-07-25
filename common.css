@@ -788,4 +788,7 @@ header .sub li:hover a {
     .sec4 .recipe li:nth-of-type(odd) .hover_box {
         top: 27%;
     }
+    .sec5 .inner .magazine_box ul li {
+        width: 50%;
+    }
 }
