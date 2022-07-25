@@ -44,19 +44,20 @@ header h1 {
     padding: 1rem;
 }
 header nav {
-    width: 60%;
+    width: 50%;
     position: relative;
 }
 header nav::before {
     content: '';
     position: absolute;
     top: 100%;
-    left: -70%;
-    width: 300%;
+    left: -85%;
+    width: 320%;
     height: 0;
     border-top: 1px solid rgba(0,0,0,0.2);
     background-color: aliceblue;
     opacity: 0;
+    overflow: hidden;
     transition: 0.7s;
     z-index: -1;
 }
@@ -68,10 +69,12 @@ header nav::after {
     content: '';
     position: absolute;
     top: calc(100% + 350px);
-    left: -70%;
-    width: 300%;
+    left: -85%;
+    width: 320%;
+    height: 0;
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
+    overflow: hidden;
     transition: 0.3s;
     z-index: -1;
 }
@@ -81,20 +84,25 @@ header nav:hover::after {
 }
 header nav:hover .sub {
     opacity: 1;
+    height: 500px;
 }
 header .gnb {
     display: flex;
+    justify-content: space-between;
 }
 header .gnb>li>a {
     font-size: 18px;
     font-family: 'NanumSquareAcb';
 }
 header .gnb_menu {
-    width: 30%;
+    width: 35%;
 }
 header .gnb_menu ul {
     display: flex;
     justify-content: space-between;
+}
+header .gnb_menu ul li {
+    width: 100%;
 }
 header .gnb,
 header .gnb_menu {
@@ -124,21 +132,23 @@ header .gnb_menu .ham {
 header .gnb>li {
     position: relative;
 }
-header .gnb>li>a {
+/* header .gnb>li>a {
     padding: 1rem 2rem;
-}
+} */
 header .sub {
     position: absolute;
     width: 200%;
     top: calc(100% + 32px);
-    left: 16px;
+    left: 0;
     padding-top: 2rem;
     opacity: 0;
+    height: 0;
+    overflow: hidden;
     transition: 0.7s;
 }
 header .sub li a {
     display: block;
-    padding: 1rem;
+    padding-top: 1.2rem;
 }
 header .sub li:hover a {
     color:#ce462e;
@@ -304,15 +314,19 @@ header .sub li:hover a {
 }
 .sec3 .wrapper {
     display: flex;
+    justify-content: space-between;
     padding-top: 50px;
 }
 .sec3 .wrapper li {
-    width: 100%;
     position: relative;
+    /* width: 100%; */
+}
+.sec3 .wrapper li img {
+    width: 100%;
 }
 .sec3 .wrapper li .box {
     position: absolute;
-    width: calc(100% - 11px);
+    width: 100%;
     height: 100%;
     top: 0;
     left: 0;
@@ -375,6 +389,7 @@ header .sub li:hover a {
     padding-top: 2rem;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 100px;
 }
 .sec4 .recipe li {
     position: relative;
@@ -414,9 +429,15 @@ header .sub li:hover a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 72%;
+    height: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.sec4 .recipe li:hover .hover_box {
+    opacity: 1;
+    height: 72%;
 }
 .sec4 .recipe li:nth-of-type(2) .hover_box {
     top: 27%;
@@ -450,8 +471,61 @@ header .sub li:hover a {
     right: 0;
     border-left: 1px solid white;
 }
-.sec4 .recipe li:hover .hover_box {
+.sec5 .inner {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+}
+.sec5 .inner > a {
+    position: absolute;
+    right: 0;
+}
+.sec5 .inner .magazine_box {
+    padding-top: 3rem;
+}
+.sec5 .inner .magazine_box ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.sec5 .inner .magazine_box ul li {
+    width: 24%;
+    position: relative;
+}
+.sec5 .inner .magazine_box ul li a > img {
+    width: 100%;
+}
+.sec5 .inner .magazine_box ul li a .sns_list {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.sec5 .inner .magazine_box ul li a .text_area_box {
+    padding: 17px 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+.sec5 .inner .magazine_box ul li a .text_area_box span{
     display: block;
+    color: #807e7e;
+    font-size: 14px;
+}
+.sec5 .inner .magazine_box ul li a .text_area_box p {
+    color: #231f20;
+    font-size: 21px;
+    padding: 10px 0;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: wrap;
+}
+/* 화면크기 1200이하일 때 조정 */
+@media(max-width:1200px) {
+    .sec2 .product_area {
+        padding: 2rem 1rem;
+    }
+    .sec4 .recipe {
+        padding: 2rem;
+    }
 }
 /* 모바일 버전 */
 @media(max-width:800px) {
@@ -639,8 +713,9 @@ header .sub li:hover a {
     #sec1 h2 {
         font-size: 1.5rem;
     }
-    .sec1 img {
-        height: 80vh;
+    .sec1 .mySwiper img {
+        width: 300%;
+        overflow: hidden;
     }
     .sec2 .inner .product_area {
         display: grid;
