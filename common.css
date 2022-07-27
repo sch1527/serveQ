@@ -601,6 +601,11 @@ header .sub li:hover a {
 .sec5 .inner .magazine_box ul li a .text_area_box {
     padding: 17px 30px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.sec5 .inner .magazine_box ul li:hover .text_area_box {
+    background-color: #e4e4e4;
 }
 
 .sec5 .inner .magazine_box ul li a .text_area_box span {
@@ -773,10 +778,20 @@ footer .inner .familysite p {
 footer .inner .familysite ul {
     /* display: none; */
     position: absolute;
+    width: 100%;
     bottom: 100%;
+    background-color: white;
+    display: none;
+    border: 1px solid #bfbfbf;
+}footer .inner .familysite ul.on {
+    display: block;
 }
 footer .inner .familysite ul li{
-    padding: 1rem 0;
+    padding: 0.5rem;
+    font-size: 14px;
+}
+footer .inner .familysite ul li:hover{
+    background-color: #f6f6f6;
 }
 footer .inner .sns {
     top: 20%;

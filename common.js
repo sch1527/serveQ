@@ -44,6 +44,9 @@ $(function() {
       $('.ham_btn .depth2>li').eq(15).toggleClass('on')
       $('.ham_btn .depth2>li').eq(16).toggleClass('on')
     })
+    $('footer .inner .familysite>p').click(function() {
+      $('footer .inner .familysite ul').toggleClass('on')
+    })
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 30,
