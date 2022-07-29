@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sub.css">
+</head>
+<body>
+    <form action="" method="post">
+        <section class="section">
+            <h1>회원가입 페이지</h1>
+            <div class="id_area">
+                <input type="text" id="uname" placeholder="이름" maxlength="20">
+                <input type="text" id="uid" placeholder="아이디" maxlength="20">
+                <button class="id_check">중복확인</button>
+                <small>영문, 숫자, 마침표만 사용할 수 있습니다.(4~20자)</small>
+            </div>
+            <div class="pw_area">
+                <input type="password" id="pw" placeholder="비밀번호" maxlength="20">
+                <input type="password" id="rpw" placeholder="비밀번호확인" maxlength="20">
+            </div>
+            <div class="phone">
+                <span>휴대전화</span>
+                <select name="num" id="num">
+                    <option value="010" selected>010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="018">018</option>
+                    <option value="019">019</option>
+                </select>
+                <span class="dash">-</span>
+                <input type="text" id="num2" maxlength="4">
+                <span class="dash">-</span>
+                <input type="text" id="num3" maxlength="4">
+                <button class="phone_check">인증번호 발송</button>
+            </div>
+            <div class="email">
+                <span>이메일</span>
+                <input type="text" maxlength="30" id="front_mail">
+                <span class="at">@</span>
+                <input type="text" maxlength="30" id="back_mail">
+                <select name="back_mail" id="mail_list">
+                    <option value="" selected>직접입력</option>
+                    <option value="naver">naver.com</option>
+                    <option value="gmail">gmail.com</option>
+                    <option value="daum">daum.net</option>
+                </select>
+            </div>
+            <div class="btn">
+                <input type="reset" value="취소" id="reset">
+                <input type="submit" value="가입하기" id="submit">
+            </div>
+        </section>
+    </form>
+</body>
+</html>

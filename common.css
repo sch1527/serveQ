@@ -44,6 +44,7 @@ header {
     z-index: 100;
     background-color: transparent;
     transition: 1s;
+    border-bottom: 1px solid white;
 }
 
 header .inner {
@@ -1020,7 +1021,7 @@ footer .inner .sns {
     }
 
     header {
-        z-index: 1;
+        z-index: 100;
     }
 
     #sec1 h2 {

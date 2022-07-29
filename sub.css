@@ -1,0 +1,118 @@
+@charset 'utf-8';
+
+* {
+    box-sizing: border-box;
+}
+.section {
+    max-width: 1200px;
+    margin: 100px auto;
+}
+.section h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.id_area {
+    padding-top: 2rem;
+}
+.id_area #uname {
+    display: block;
+    margin: 1rem 0;
+}
+input[type=text],
+input[type=password],
+input[type=number] {
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #e4e4e4;
+}
+.id_area .id_check {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    cursor: pointer;
+}
+.id_area small {
+    display: block;
+    font-size: 0.8rem;
+    padding-top: 10px;
+}
+.pw_area {
+    padding-top: 1rem;
+}
+#pw {
+    display: block;
+    margin-bottom: 1rem;
+}
+.phone {
+    padding-top: 1rem;
+}
+.phone span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #777;
+}
+.phone #num {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    border: 1px solid #e4e4e4;
+}
+.phone .dash {
+    font-size: 2rem;
+}
+.phone #num2,
+.phone #num3 {
+    width: 80px;
+}
+.phone .phone_check {
+    padding: 0.8rem 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    cursor: pointer;
+}
+.email {
+    padding-top: 1rem;
+}
+.email span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #777;
+}
+.email input {
+    width: 150px;
+    color: #666;
+}
+.email #mail_list {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    border: 1px solid #e4e4e4;
+    cursor: pointer;
+}
+#reset,
+#submit {
+    padding: 0.8rem 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border: none;
+    width: 150px;
+    cursor: pointer;
+}
+.btn {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+#reset {
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+#submit {
+    background-color: #ce462d;
+    color: white;
+}

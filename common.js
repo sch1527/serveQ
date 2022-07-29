@@ -54,10 +54,6 @@ $(function () {
       $('header').css({
         borderBottom: '1px solid rgba(0,0,0,0.2)'
       })
-    } else {
-      $('header').css({
-        borderBottom: 'none'
-      })
     }
     if ($(this).scrollTop() >= 1) {
       $('.main_txt').css({
