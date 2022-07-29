@@ -34,7 +34,7 @@ function form_check() {
         return false
     }
     let pwCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
-    if(pwCheck.test(pw.value)) {
+    if(!pwCheck.test(pw.value)) {
         alert('형식에 맞게 입력해 주세요')
         pw.focus()
         return false
