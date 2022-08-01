@@ -44,6 +44,36 @@ $(function () {
     $('.ham_btn .depth2>li').eq(15).toggleClass('on')
     $('.ham_btn .depth2>li').eq(16).toggleClass('on')
   })
+  if ($('.gnb').mouseover(() => {
+      $('header nav .nav_after').css({
+        display: 'block'
+      })
+    }))
+    if ($('.gnb').mouseout(() => {
+        $('header nav .nav_after').css({
+          display: 'none'
+        })
+      }))
+      // 모바일 sub 슬라이드 토글
+      $('.gnb>ul>li>a').click(function () {
+        if ($(this).parent().attr('class') != 'on') {
+          // .gnb>ul>li>a의 부모의 클래스가 on이 아닐 때,
+          $('.sub').slideUp()
+          // sub가 슬라이드업 된다 (위쪽으로 사라짐)
+          $(this).next().slideToggle();
+          // .gnb>ul>li>a의 바로 다음 요소(.sub)가 슬라이드 토글 된다
+          $(".gnb>ul>li").removeClass("on");
+          // .gnb>ul>li에 있는 클래스 on을 다 제거한다
+          $(this).parent().addClass("on");
+          // 이것(.gnb>ul>li>a)의 부모(=.gnb>ul>li)의 클래스 on을 붙여준다
+        } else {
+          // 그 외에
+          $(this).next().slideToggle();
+          // .gnb>ul>li>a의 바로 다음 요소가(.sub) 슬라이드 토글 된다
+          $(this).parent().removeClass("on");
+          // .gnb>ul>li>a의 부모의 클래스 on을 제거한다
+        }
+      })
   $('footer .inner .familysite>p').click(function () {
     $('footer .inner .familysite ul').toggleClass('on')
   })
