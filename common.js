@@ -4,6 +4,7 @@ $(function () {
     $('.ham').toggleClass('on')
     $('.ham_btn>span').toggleClass('on')
     $('.ham_btn .background').toggleClass('on')
+    $('header .inner').css({display:'none'})
   })
   $('.ham_btn .close').click(() => {
     $('.ham_btn').toggleClass('on')
@@ -11,6 +12,7 @@ $(function () {
     $('.ham_btn>span').toggleClass('on')
     $('.ham_btn .background').toggleClass('on')
     $('.ham_btn .depth2>li').removeClass('on')
+    $('header .inner').css({display:'flex'})
   })
   $('.ham_btn .depth1>li>a').eq(0).click(() => {
     $('.ham_btn .depth2>li').removeClass('on')

@@ -825,13 +825,16 @@ footer .inner .sns {
     }
 
     header .gnb_menu {
-        position: absolute;
-        right: 1rem;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 2rem;
     }
 
     header .gnb_menu .ham {
         display: block;
         width: 30px;
+        /* height: 50px; */
         position: relative;
     }
 
@@ -841,8 +844,8 @@ footer .inner .sns {
 
     header .gnb_menu .ham span {
         position: absolute;
-        top: -30px;
-        right: -80px;
+        top: 0;
+        right: 0;
         width: 100%;
         border-radius: 5px;
         border: 2px solid black;
@@ -850,14 +853,17 @@ footer .inner .sns {
     }
 
     header .gnb_menu .ham span:nth-of-type(2) {
-        top: -15px;
+        top: 15px;
         width: 20px;
     }
 
     header .gnb_menu .ham span:nth-of-type(3) {
-        top: 0;
+        top: 30px;
     }
-
+    header .gnb_menu .search {
+        padding-right: 2rem;
+        z-index: -1;
+    }
     .ham_btn {
         display: block;
         position: fixed;
