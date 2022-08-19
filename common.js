@@ -1,124 +1,95 @@
 $(function () {
-  $('.ham').click(() => {
-    $('.ham_btn').toggleClass('on')
-    $('.ham').toggleClass('on')
-    $('.ham_btn>span').toggleClass('on')
-    $('.ham_btn .background').toggleClass('on')
-    $('header .inner').css({display:'none'})
-  })
-  $('.ham_btn .close').click(() => {
-    $('.ham_btn').toggleClass('on')
-    $('.ham').toggleClass('on')
-    $('.ham_btn>span').toggleClass('on')
-    $('.ham_btn .background').toggleClass('on')
-    $('.ham_btn .depth2>li').removeClass('on')
-    $('header .inner').css({display:'flex'})
-  })
-  $('.ham_btn .depth1>li>a').eq(0).click(() => {
-    $('.ham_btn .depth2>li').removeClass('on')
-    $('.ham_btn .depth2>li').eq(0).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(1).toggleClass('on')
-  })
-  $('.ham_btn .depth1>li>a').eq(2).click(() => {
-    $('.ham_btn .depth2>li').removeClass('on')
-    $('.ham_btn .depth2>li').eq(2).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(3).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(4).toggleClass('on')
-  })
-  $('.ham_btn .depth1>li>a').eq(3).click(() => {
-    $('.ham_btn .depth2>li').removeClass('on')
-    $('.ham_btn .depth2>li').eq(5).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(6).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(7).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(8).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(9).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(10).toggleClass('on')
-  })
-  $('.ham_btn .depth1>li>a').eq(4).click(() => {
-    $('.ham_btn .depth2>li').removeClass('on')
-    $('.ham_btn .depth2>li').eq(11).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(12).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(13).toggleClass('on')
-  })
-  $('.ham_btn .depth1>li>a').eq(5).click(() => {
-    $('.ham_btn .depth2>li').removeClass('on')
-    $('.ham_btn .depth2>li').eq(14).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(15).toggleClass('on')
-    $('.ham_btn .depth2>li').eq(16).toggleClass('on')
-  })
-  if ($('.gnb').mouseover(() => {
-      $('header nav .nav_after').css({
-        display: 'block'
-      })
-    }))
-    if ($('.gnb').mouseout(() => {
-        $('header nav .nav_after').css({
-          display: 'none'
-        })
-      }))
-      // 모바일 sub 슬라이드 토글
-      $('.gnb>ul>li>a').click(function () {
-        if ($(this).parent().attr('class') != 'on') {
-          // .gnb>ul>li>a의 부모의 클래스가 on이 아닐 때,
-          $('.sub').slideUp()
-          // sub가 슬라이드업 된다 (위쪽으로 사라짐)
-          $(this).next().slideToggle();
-          // .gnb>ul>li>a의 바로 다음 요소(.sub)가 슬라이드 토글 된다
-          $(".gnb>ul>li").removeClass("on");
-          // .gnb>ul>li에 있는 클래스 on을 다 제거한다
-          $(this).parent().addClass("on");
-          // 이것(.gnb>ul>li>a)의 부모(=.gnb>ul>li)의 클래스 on을 붙여준다
-        } else {
-          // 그 외에
-          $(this).next().slideToggle();
-          // .gnb>ul>li>a의 바로 다음 요소가(.sub) 슬라이드 토글 된다
-          $(this).parent().removeClass("on");
-          // .gnb>ul>li>a의 부모의 클래스 on을 제거한다
+    // 스크롤바 위치에 맞는 페이지네이션
+    $(window).scroll(function () {
+        let ht = $(window).height()
+        let scTop = $(window).scrollTop()
+
+        for (let i = 0; i < 4; i++) {
+            if (scTop >= ht * i && scTop < ht * (i + 1)) {
+                $('.pagination span').removeClass('on')
+                $('.pagination span').eq(i).addClass('on')
+            }
         }
-      })
-  $('footer .inner .familysite>p').click(function () {
-    $('footer .inner .familysite ul').toggleClass('on')
-  })
-  let a = $('.sec1').height()
-  console.log(a)
-  $(window).scroll(() => {
-    if ($(this).scrollTop() >= (a - 80)) {
-      $('header').css({
-        borderBottom: '1px solid rgba(0,0,0,0.2)'
-      })
-    }
-    if ($(this).scrollTop() >= 1) {
-      $('.main_txt').css({
-        color: '#333333'
-      })
-      $('header').css({
-        backgroundColor: 'white'
-      })
-    } else {
-      $('.main_txt').css({
-        color: 'white'
-      })
-      $('header').css({
-        backgroundColor: 'transparent'
-      })
-    }
-  })
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    effect: "fade"
-  });
+        for (let i = 1; i < 4; i++) {
+            if (scTop >= ht * i && scTop < ht * (i + 1)) {
+                $('#header .gnb>li').removeClass('on')
+                $('#header .gnb>li').eq(i - 1).addClass('on')
+                $('#header .gnb>li>a').removeClass('on')
+                $('#header .gnb>li>a').eq(i - 1).addClass('on')
+            } else if (scTop == 0) {
+                $('#header .gnb>li').removeClass('on')
+                $('#header .gnb>li>a').removeClass('on')
+            }
+        }
+        // 두 번째 화면의 텍스트 효과
+        if (scTop >= ht * 1 && scTop < ht * 2) {
+            $('#about h3').addClass('on')
+            $('#about .name').addClass('on')
+            $('#about .birth').addClass('on')
+            $('#about .life').addClass('on')
+            $('#about .wrap ul').addClass('on')
+        } else {
+            $('#about h3').removeClass('on')
+            $('#about .name').removeClass('on')
+            $('#about .birth').removeClass('on')
+            $('#about .life').removeClass('on')
+            $('#about .wrap ul').removeClass('on')
+        }
+    })
+    // 윈도우 크기가 변경되었을 때
+    $(window).resize(function() {
+        let wid = $(window).width()
+        // width가 1005이하일 때 텍스트 변경
+        if (wid <= 1005) {
+            $('#about .skills span').text('* 이미지를 클릭해보세요!')
+        } else {
+            $('#about .skills span').text('* 이미지에 마우스를 올려보세요!')
+        }
+    })
+    let elm = "section"
+    $(elm).each(function (index) {
+        $(this).on("mousewheel", function (e) {
+            e.preventDefault()
+            let delta = 0
+
+            if (event.wheelDelta) {
+                delta = event.wheelDelta
+            }
+            let moveTop = $(window).scrollTop()
+            let elmSelecter = $(elm).eq(index)
+
+            // 마우스 휠을 위에서 아래로 내렸을 때
+            if (delta < 0) {
+                if ($(elmSelecter).next('section') != undefined) {
+                    try {
+                        moveTop = $(elmSelecter).next('section').offset().top
+                    } catch (e) {}
+                }
+                // 마우스 휠을 아래에서 위로 올렸을 때
+            } else {
+                if ($(elmSelecter).prev('section') != undefined) {
+                    try {
+                        moveTop = $(elmSelecter).prev('section').offset().top
+                    } catch (e) {}
+                }
+            }
+            // 화면 이동
+            $('html, body').stop().animate({
+                scrollTop: moveTop + 'px'
+            }, 0)
+        })
+    })
+    $('#header .ham').click(function() {
+        $(this).toggleClass('on')
+        $('#header .ham_menu').toggleClass('on')
+    })
+    $('#header .ham_menu .close').click(function() {
+        $('#header .ham').toggleClass('on')
+        $('#header .ham_menu').toggleClass('on')
+    })
+    $('#header .ham_menu a').click(function() {
+        $('#header .ham').removeClass('on')
+        $('#header .ham_menu').removeClass('on')
+    })
+    
 })
